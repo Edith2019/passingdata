@@ -12,6 +12,8 @@ class Input extends React.Component {
             lname: "",
             renderfname: "",
             renderlname: "",
+            renting: "",
+            buying: "",
             isVisible: false,
         }
         this.handleChange = this.handleChange.bind(this);
@@ -45,10 +47,6 @@ class Input extends React.Component {
         this.setState({
             isVisible: !this.state.isVisible
         })
-        console.log("this.state.isVisible", this.state.isVisible)
-        console.log("this.props", this.props.fname)
-        console.log("this.stat", this.state.fname)
-
     }
 
     render() {
@@ -59,13 +57,14 @@ class Input extends React.Component {
                 <div>
                     <p>TEST</p>
                     <form>
-                        <input type="text" id="fname" name="fname" onChange={e => this.handleChange(e)} />
-                        <input type="text" id="lname" name="lname" onChange={e => this.handleChange(e)} />
+                        <input type="text" id="fname" name="fname" onChange={e => this.handleChange(e)} placeholder="first Name" />
+                        <input type="text" id="lname" name="lname" onChange={e => this.handleChange(e)} placeholder="last Name" />
 
                     </form>
                     <button type="button" onClick={() => this.handleSubmit()}> submit </button>
 
                     <h1> Welcome {this.state.renderfname} {this.state.renderlname} </h1>
+                    <p>Please click next to start your profile</p>
                     <button onClick={() => this.setVisible()}> Next </button>
                     {this.isVisible && (
                         <Modal isVisible={this.isVisible} parentsData={this.state} />
