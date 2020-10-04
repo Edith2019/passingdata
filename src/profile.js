@@ -1,64 +1,86 @@
 import React from 'react'
-import Selection from './selection.js'
 
 class Profile extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             oneSelect: false,
-            renting: this.props.renting,
-            buying: this.props.renting,
-            //currentSelection: this.state.currentSelection
-            //newSelection: [],
+            //newState: {},
+            renting: "",
+            buying: "",
+            //}
+            rentingMsg: "",
+            // buyingMsg: "",
 
         }
         this.handleSelect = this.handleSelect.bind(this);
-        console.log("this.props")
+        //this.sendDataParents = this.sendDataParents.bind(this)
+        //console.log("renting", this.renting.renting)
     }
 
     handleSelect(e) {
-        console.log("e.target.value", e.target.value)
-        console.log("e.target.name", e.target.name)
         if (e.target.name === "yesR" && e.target.value === "on") {
             const newState = {
                 renting: "I want to rent books"
             }
-            this.setState({ newState })
-            console.log("newStateBuy", newState)
+            this.setState({ newState }, () => {
+                this.props.parentCallback(this.state.newState.renting)
+
+            })
+
 
 
         } else if (e.target.name === "noR" && e.target.value === "on") {
             const newState = {
                 renting: "I don't want to rent books"
             }
-            this.setState({ newState })
+            this.setState({ newState }, () => {
+                this.props.parentCallback(this.state.newState.renting)
+
+            })
+
         }
 
-        if (e.target.name === "yesB" && e.target.value === "on") {
+        // if (e.target.name === "yesB" && e.target.value === "on") {
 
-            const newStateBuy = {
-                buying: "I want to buy books"
-            }
-            this.setState({ newStateBuy })
+        //     const newState = {
+        //         buying: "I want to buy books"
+        //     }
+        //     this.setState({ newState }, () => {
+        //         this.props.parentCallback(this.state.newState.buying)
 
-        } else if (e.target.name === "noB" && e.target.value === "on") {
-            const newStateBuy = {
-                buying: "I don't want to buy books"
-            }
-            this.setState({ newStateBuy })
-            console.log("newStateBuy", newStateBuy)
-        }
+        //     })
+
+        // } else if (e.target.name === "noB" && e.target.value === "on") {
+        //     const newState = {
+        //         buying: "I don't want to buy books"
+        //     }
+        //     this.setState({ newState }, () => {
+        //         this.props.parentCallback(this.state.newState.buying)
+
+        //     })
+        // }
+        //console.log("renting message", this.renting)
+
+        // this.props.parentCallback(this.renting)
+
     }
 
-
+    // sendDataParents() {
+    //     //console.log("props in sendData", newState)
+    //     // this.props.parentCallback(this.state.newState)
+    //     console.log("this.newSate", this.state.rentingMsg)
+    // }
 
     render() {
         //console.log("selected Types", this.selectedTypes)
+        //console.log("newStaterent", this.newState)
 
         return (
+
             <React.Fragment>
                 <div>  I am interested in renting books:
-                <form onChange={(e) => this.handleSelect(e)}>
+                <form onChange={(e) => this.handleSelect(e)} >
                         <label> Yes </label>
                         <input type="radio" name="yesR" />
                         <label> No </label>
@@ -66,15 +88,16 @@ class Profile extends React.Component {
 
                     </form>
                 </div>
-                <div>  I am interested in buying books:
-                <form onChange={(e) => this.handleSelect(e)}>
+                {/* <div>  I am interested in buying books: */}
+                {/* <form onChange={(e) => this.handleSelect(e)}>
                         <label> Yes </label>
                         <input type="radio" name="yesB" />
                         <label> No </label>
                         <input type="radio" name="noB" />
                     </form>
-                </div>
-                <Selection />
+                </div> */}
+                {/* {this.state.newState.renting}
+                {this.state.newState.buying} */}
 
             </React.Fragment>
         )

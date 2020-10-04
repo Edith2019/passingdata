@@ -55,8 +55,7 @@ class Input extends React.Component {
         return (
             <React.Fragment>
                 <div>
-                    <p>TEST</p>
-                    <form>
+                    <form className="parentsCSS">
                         <input type="text" id="fname" name="fname" onChange={e => this.handleChange(e)} placeholder="first Name" />
                         <input type="text" id="lname" name="lname" onChange={e => this.handleChange(e)} placeholder="last Name" />
 
