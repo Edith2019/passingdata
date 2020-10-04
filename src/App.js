@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Input from './input.js'
 
@@ -15,7 +14,6 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Input />
-
       </React.Fragment>
     )
   }

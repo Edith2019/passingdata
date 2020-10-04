@@ -27,7 +27,7 @@ class Selection extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div>
+                <div id="selectionContainer">
                     I want to read:
                 <form id="selection" onClick={() => this.handleList()}>
                         <ul >
