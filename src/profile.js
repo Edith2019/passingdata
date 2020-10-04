@@ -16,6 +16,8 @@ class Profile extends React.Component {
                 renting: "I want to rent books"
             }
             this.setState({ newState }, () => {
+                //define a callback that will send data to the parent component when handleSelect is called
+                //is set up in the setState as it is async and parentCallback will not execute as long as setState did not happen
                 this.props.parentCallback(this.state.newState.renting)
             })
         } else if (e.target.name === "noR" && e.target.value === "on") {

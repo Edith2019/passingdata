@@ -11,16 +11,16 @@ class Modal extends React.Component {
         }
         this.profileCallback = this.profileCallback.bind(this)
         this.selectionCallback = this.selectionCallback.bind(this)
-        //this.handleChange = this.handleChange.bind(this)
-        //this.grandChildCallback = this.grandChildCallback.bind(this)
     }
+
+    //SetUp a callBack to get the data from the child component
     profileCallback(rentingMsg) {
         this.setState({
             childProfileRenting: rentingMsg
         })
     }
 
-
+    //SetUp a callBack to get the data from the child component
     selectionCallback(currentSelection) {
         this.setState({ bookTypes: currentSelection })
 
@@ -30,12 +30,13 @@ class Modal extends React.Component {
         return (
             <React.Fragment>
                 <div id="modal">
+                    {/* by calling this.props.parentsData we can access the parent props*/}
                     <div> Hey {this.props.parentsData.renderfname}</div>
                     <div> Please fill out the following data so we can know more about your needs: </div>
-
-                    <Profile parentCallback={this.profileCallback} onChange={this.grandChildCallback} />
+                    {/* When the state  in the child will change, it sill call profileCallback via parentCallback being called in the child component*/}
+                    <Profile parentCallback={this.profileCallback} />
                     <Selection parentSelectionCallback={this.selectionCallback} />
-
+                    {/* Render the data from the parent by using props and from the child by using state defined in the callback*/}
                     <h1>Summary </h1>
                     <p>First name: {this.props.parentsData.renderfname} </p>
                     <p>Last name: {this.props.parentsData.renderlname} </p>

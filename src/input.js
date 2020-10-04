@@ -5,6 +5,7 @@ import Modal from './modal.js'
 class Input extends React.Component {
     constructor(props) {
         super(props)
+        //define props
         this.state = {
             fname: "",
             lname: "",
@@ -15,13 +16,14 @@ class Input extends React.Component {
             isVisible: false,
             grandChildData: "",
         }
+        //bind this to function so when called, will have the particular this binded to it
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.setVisible = this.setVisible.bind(this)
     }
 
     handleChange(e) {
-        e.preventDefault()
+        //Get the name of the inputfield and assign it the value using e.target
         this.setState({
             [e.target.name]: e.target.value,
             [e.target.name]: e.target.value
@@ -29,6 +31,7 @@ class Input extends React.Component {
     }
 
     handleSubmit() {
+        //set up new keys with the associated value in order to only render the final name on submit
         this.setState({
             renderfname: this.state.fname,
             renderlname: this.state.lname,
@@ -36,6 +39,7 @@ class Input extends React.Component {
     }
 
     setVisible() {
+        //onClick, set up the oppisite value (true or false)
         this.setState({
             isVisible: !this.state.isVisible
         })
@@ -56,6 +60,7 @@ class Input extends React.Component {
                     <p>Please click next to start your profile</p>
                     <button onClick={() => this.setVisible()}> Next </button>
                     {this.isVisible && (
+                        // parentsData is a placeholder to pass the states to the child component
                         <Modal isVisible={this.isVisible} parentsData={this.state} />
                     )
                     }
