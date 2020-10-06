@@ -20,6 +20,7 @@ class Input extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.setVisible = this.setVisible.bind(this)
+        console.log("this.props in input", this.props)
     }
 
     handleChange(e) {

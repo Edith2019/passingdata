@@ -23,8 +23,10 @@ class Modal extends React.Component {
     //SetUp a callBack to get the data from the child component
     selectionCallback(currentSelection) {
         this.setState({ bookTypes: currentSelection })
+        console.log("this.state in modal", this.state.bookTypes)
 
     }
+
 
     render() {
         return (
