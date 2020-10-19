@@ -18,7 +18,7 @@ class Selection extends React.Component {
             }
         }
 
-        console.log("currentSelection", currentSelection)
+        // console.log("currentSelection", currentSelection)
         this.props.parentSelectionCallback(currentSelection)
     }
 

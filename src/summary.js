@@ -7,7 +7,7 @@ class Summary extends React.Component {
 
         }
 
-        console.log("this.props", this.props)
+        // console.log("this.props", this.props)
     }
 
     render() {
